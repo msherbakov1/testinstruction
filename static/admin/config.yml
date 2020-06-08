@@ -1,0 +1,39 @@
+backend:
+  name: git-gateway
+  repo: msherbakov1/testinstruction
+  branch: master
+
+local_backend: true
+
+publish_mode: editorial_workflow
+
+media_folder: static/images/uploads
+public_folder: /images/uploads
+
+collections:
+  - name: "blog"
+    label: "Blog"
+    folder: "content/blog"
+    create: true
+    slug: "{{year}}-{{slug}}"
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Draft", name: "draft", widget: "boolean", default: true}
+      - {label: "Publish Date", name: "date", widget: "date"}
+      - {label: "Images", name: "image", widget: "image"}
+      - {label: "Blog content", name: "body", widget: "markdown"}
+      - {label: "Tags", name: "tags", widget: "list", allow_add: true, multiple: true, field: {name: tag, label: Tag, widget: string}}
+
+
+  - name: "pages"
+    label: "Pages"
+    folder: "content/pages"
+    create: true
+    slug: "{{year}}-{{slug}}"
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Draft", name: "draft", widget: "boolean", default: true}
+      - {label: "Publish Date", name: "date", widget: "date"}
+      - {label: "Images", name: "image", widget: "image"}
+      - {label: "Blog content", name: "body", widget: "markdown"}
+
